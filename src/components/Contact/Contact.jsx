@@ -8,14 +8,14 @@ const Contact = () => {
    <section className="contact section" id="contact" data-aos="fade-up" data-aos-duration={700}>
   <span className="section__subtitle">Get in touch</span>
   <h2 className="section__title">Connect me</h2>
-  <div className="contact__container container grid">
+  <div className="container grid contact__container">
     <div className="contact__content">
       <h3 className="contact__title">Talk to me</h3>
       <div className="contact__info">
         <div className="contact__card" data-aos="fade-right" data-aos-delay={300} data-aos-duration={700}>
           <i className="bx bx-mail-send contact__card-icon" />
           <h3 className="contact__card-title">Email</h3>
-          <span className="contact__card-data">luongminhtinh08077@gmail.com</span>
+          <span className="contact__card-data">luongminhtinh0807@gmail.com</span>
           <a href="mailto:luongminhtinh0807@gmail.com" target="_blank" className="contact__button">
             Write me <BiRightArrowAlt className="contact__button-icon"/>
           </a>
@@ -23,7 +23,7 @@ const Contact = () => {
         <div className="contact__card" data-aos="fade-right" data-aos-delay={400} data-aos-duration={700}>
           <i className="bx bx-phone-call contact__card-icon" />
           <h3 className="contact__card-title">My phone</h3>
-          <span className="contact__card-data">0326.066.660</span>
+          <span className="contact__card-data">0393.148.151</span>
           <a href="tel:0326066660" target="_blank" className="contact__button">
             Call me <BiRightArrowAlt className="contact__button-icon"/>
           </a>
