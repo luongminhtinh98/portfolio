@@ -54,7 +54,7 @@ const Header = () => {
           MINH TINH
         </a>
         <div className="flex items-center justify-between">
-          <Button
+          {/* <Button
             style={{ backgroundColor: "#606EBE" }}
             type="primary"
             onClick={() => navigate("/signin")}
@@ -63,7 +63,7 @@ const Header = () => {
           </Button>
           <Button className="mx-2 button-signup" onClick={() => navigate("/register")}>
             Sign up
-          </Button>
+          </Button> */}
           {theme === "light" ? (
             <BiMoon className="change-theme" id="theme-button" onClick={toggleTheme} />
           ) : (
