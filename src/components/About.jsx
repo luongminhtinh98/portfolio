@@ -14,17 +14,17 @@ const About = () => {
           <div className="about__data" data-aos="fade-left" data-aos-duration={2000}>
             <div className="about__info">
               <div className="about__box">
-                <BiParty />
+                <BiParty className='about__icon'/>
                 <h3 className="about__title">Year of Birth</h3>
                 <span className="about__subtitle">Born in 1998</span>
               </div>
               <div className="about__box">
-                <BiMusic />
+                <BiMusic className='about__icon'/>
                 <h3 className="about__title">Music Type</h3>
                 <span className="about__subtitle">Ballad, Pop, Rock, USUK, RnB,...</span>
               </div>
               <div className="about__box">
-                <BiRightTopArrowCircle />
+                <BiRightTopArrowCircle className='about__icon'/>
                 <h3 className="about__title">Distinctive</h3>
                 <span className="about__subtitle">Always in time :)))</span>
               </div>

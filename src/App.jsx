@@ -14,17 +14,37 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path='/' element={
+        <Route
+          path="/"
+          element={
             <>
-              <Header />
-              <Nav />
-              <Home />
-              <About />
-              <Work />
-              <Contact />
-              <Footer />
+              <Header />  {/* fixed */}
+              <Nav />     {/* fixed */}
+              <div className="main__container">
+                <Home />
+                <About />
+                <Work />
+                <Contact />
+                <Footer />
+              </div>
             </>
-          } />
+          }
+        />
+          <Route
+            path="/"
+            element={
+              <div className="main__container">
+                <Header />
+                <Nav />
+                <Home />
+                <About />
+                <Work />
+                <Contact />
+                <Footer />
+              </div>
+            }
+          />
+
 
           <Route path='/signin' element={
             <>

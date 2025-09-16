@@ -199,8 +199,6 @@ body.dark-theme input {
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1100px;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .grid {
@@ -246,7 +244,7 @@ body.dark-theme input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem ;
 
 }
 
@@ -276,7 +274,7 @@ body.dark-theme input {
   position: fixed;
   bottom: 1rem;
   background-color: hsl(var(--second-hue), 32%, 16%, .8);
-  width: 90%;
+  width: 100%;
   border-radius: 4rem;
   padding: 1rem 1.25rem;
   backdrop-filter: blur(10px);
@@ -477,9 +475,10 @@ body.dark-theme input {
 }
 
 .about__icon{
-  font-size: 1.5rem;
+  display: block;margin: 0 auto;
+  font-size: 1.2rem;
   color: var(--first-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .about__title {
@@ -706,6 +705,13 @@ body.dark-theme input {
 /* For small devices */
 
 @media screen and (max-width: 320px) {
+  .main__container{
+    margin: 0 10px;
+  }
+  .about__icon{
+    display: block;margin: 0 auto;
+    padding-bottom: 5px;
+  }
   .work__button{
     display: inline-flex;
   }
@@ -743,6 +749,13 @@ body.dark-theme input {
 
 /* For medium devices */
 @media screen and (max-width: 576px) {
+  .main__container{
+    margin: 0 10px;
+  }
+  .about__icon{
+    display: block;margin: 0 auto;
+    padding-bottom: 5px;
+  }
   .work__button{
     display: inline-flex;
   }
@@ -770,9 +783,6 @@ body.dark-theme input {
   .about__info{
     grid-template-columns: repeat(3, 140px);
     justify-content: center;
-  }
-  .about__description{
-    padding: 0 5rem;
   }
   .work__container{
     display: flex;
@@ -821,6 +831,9 @@ body.dark-theme input {
 /* For large devices */
 
 @media screen and (min-width: 992px) {
+  .nav__menu{
+    display: none;
+  }
   .container{
     margin-left: auto;
     margin-right: auto;
@@ -860,17 +873,18 @@ body.dark-theme input {
     width: 350px;
   }
   .about__data{
-    text-align: initial;
+    text-align: center;
   }
   .about__info{
-    justify-content: initial;
+    justify-content: center;
   }
   .about__box{
     text-align: center;
     padding: 1rem 1.25rem;
   }
-  .about__description{
-    padding: 0 4rem 0 0;
+  .about__icon{
+    display: block;margin: 0 auto;
+    padding-bottom: 5px;
   }
   .work__container{
     display: flex;
