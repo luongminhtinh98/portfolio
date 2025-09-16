@@ -1,76 +1,77 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { BiMoon, BiSun } from "react-icons/bi";
-import { Button } from 'antd';
+import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-
 
 const Header = () => {
   const navigate = useNavigate();
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
+
+  const applyTheme = (theme) => {
+    document.body.classList.remove("light-theme", "dark-theme");
+    document.body.classList.add(`${theme}-theme`);
+  };
 
   const toggleTheme = () => {
-  const newTheme = theme === 'light' ? 'dark' : 'light';
-  setTheme(newTheme);
-  document.body.classList.toggle('light-theme', newTheme === 'light');
-  document.body.classList.toggle('dark-theme', newTheme === 'dark');
-  localStorage.setItem('selected-theme', newTheme);
-};
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    applyTheme(newTheme);
+    localStorage.setItem("selected-theme", newTheme);
+  };
 
-useEffect(() => {
-  const selectedTheme = localStorage.getItem('selected-theme');
-  if (selectedTheme) {
-    setTheme(selectedTheme);
-    document.body.classList.toggle('light-theme', selectedTheme === 'light');
-    document.body.classList.toggle('dark-theme', selectedTheme === 'dark');
-  }
-}, []);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("selected-theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      applyTheme(savedTheme);
+    } else {
+      // mặc định là sáng
+      setTheme("light");
+      applyTheme("light");
+      localStorage.setItem("selected-theme", "light");
+    }
+  }, []);
 
   useEffect(() => {
     const scrollHeader = () => {
-      const header = document.getElementById('header');
+      const header = document.getElementById("header");
+      if (!header) return;
       if (window.scrollY >= 50) {
-        header.classList.add('scroll-header');
+        header.classList.add("scroll-header");
       } else {
-        header.classList.remove('scroll-header');
+        header.classList.remove("scroll-header");
       }
     };
 
-    window.addEventListener('scroll', scrollHeader);
-
-    return () => {
-      window.removeEventListener('scroll', scrollHeader);
-    };
+    window.addEventListener("scroll", scrollHeader);
+    return () => window.removeEventListener("scroll", scrollHeader);
   }, []);
-  
+
   return (
-    <div>
-      <header id='header' className='header'>
-        <div className="container grid header__container">
-          <a href="#" className="nav-logo" onClick={() => navigate('/')}>MINH TINH</a>
-          <div className='flex items-center justify-between'>
-          {/* <span className='mx-2 rounded-full bg-slate-300' style={{width: '40px', height: '40px', lineHeight: '40px', textAlign: 'center'}}> T </span> */}
-          <Button 
-            style={{
-              backgroundColor: '#606EBE'}} 
-            type="primary"
-            onClick={() => navigate('/signin')}
-            >
-            Sign in</Button>
+    <header id="header" className="header">
+      <div className="container grid header__container">
+        <a href="#" className="nav-logo" onClick={() => navigate("/")}>
+          MINH TINH
+        </a>
+        <div className="flex items-center justify-between">
           <Button
-            className='mx-2 button-signup'
-            onClick={() => navigate('/register')}
+            style={{ backgroundColor: "#606EBE" }}
+            type="primary"
+            onClick={() => navigate("/signin")}
           >
-              Sign up
+            Sign in
           </Button>
-            <span>{theme === 'light' ? (
-              <BiMoon className='change-theme' id="theme-button" onClick={toggleTheme} />
-            ) : (
-              <BiSun className='change-theme' id="theme-button" onClick={toggleTheme} />
-            )}</span>
-          </div>
+          <Button className="mx-2 button-signup" onClick={() => navigate("/register")}>
+            Sign up
+          </Button>
+          {theme === "light" ? (
+            <BiMoon className="change-theme" id="theme-button" onClick={toggleTheme} />
+          ) : (
+            <BiSun className="change-theme" id="theme-button" onClick={toggleTheme} />
+          )}
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 
